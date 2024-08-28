@@ -32,7 +32,7 @@ ___D-Flip-Flop___
 > [!Note]
 > A register is a circuit similar to a D-Flip-Flop but the I/O data are vectors
 
-___Binary Number Systems__
+___Binary Number Systems___
 
 - The range of an unsigned number => $0 \leq\ N \leq\ (2^n-1)$
 - The range of signed numbers => $-(2^{n-1}) \leq\ N \leq\ (2^{n-1}-1)$
