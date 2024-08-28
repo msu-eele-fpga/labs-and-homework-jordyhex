@@ -45,4 +45,4 @@ _Verilog__: [HDL Bits](https://hdlbits.01xz.net/wiki/Main_Page)
 
 _Binary Number System_: 
 
-![Table of the binary number system.](/assets/twos-comp-table.jpg)
+![Table of the binary number system.](/docs/assets/twos-comp-table.svg)
