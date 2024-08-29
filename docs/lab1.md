@@ -1,3 +1,6 @@
+> [!NOTE]
+> Submission notes: Please ignore the git use from this lab that is outside of the workflow. I did it correctly but the image I used wasn't loading properly andcaused an error. 
+
 ```c
 #include <stdio.h>
 
