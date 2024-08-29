@@ -12,4 +12,8 @@ int main(){
 
 ```
 
+<<<<<<< HEAD
 ![Terminal output from Ubuntu.](assets/terminal-hello-c.jpg)
+=======
+![Terminal output from Ubuntu.](assets/hello_world.jpg)
+>>>>>>> lab-1
