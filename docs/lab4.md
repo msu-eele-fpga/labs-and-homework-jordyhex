@@ -28,6 +28,7 @@
     subgraph top[DE10nano Top Entity];
     direction TB
     async[Asynchronous Conditioner]-->led[LED Patterns];
+    end
     A[fpga_clk1_50]-->|50 MHz Clock| top;
     B[push_button_n]-->async[Asynchronous Conditioner];
     
