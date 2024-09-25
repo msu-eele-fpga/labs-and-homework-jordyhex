@@ -24,6 +24,7 @@
 > ### LED Patterns
 >
 > |Specs|Transition|State 0|State 1|State 2|State 3|State 4|
+> |-------|------------|------------|------------|------------|------------|------------|
 > |Rate|1 second|1/2 second|1/4 second|2 seconds|1/8 second|1/16 second|
 > |Pattern|Switch Value|Circular Right Shift|Circular Left Shift|Up Counter Wrap|Down Counter Wrap|The Wave|
 > |Lit LEDS|N/A|1|2|N/A|N/A|N/A|
