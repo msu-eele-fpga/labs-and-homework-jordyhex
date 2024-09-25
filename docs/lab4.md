@@ -42,9 +42,9 @@
             end
             one[One Pulse]-->led[LED Patterns];
         end
-        A[fpga_clk1_50]-->|50 MHz Clock| top[DE10nano Top Entity];
+        A[fpga_clk1_50]--> top[DE10nano Top Entity];
         B[push_button_n]-->async[Asynchronous Conditioner];
-        C[rst]-->|Active Low| top[DE10nano Top Entity];
+        C[rst]-->top[DE10nano Top Entity];
         led[LED Patterns] --> led_out[LEDs]
 ```
 
