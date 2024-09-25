@@ -24,22 +24,19 @@
 > ## System Architecture
 
 graph TD;
-A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
+    A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
     A -->|Push Button| C[push_button_n];
     A -->|Slide Switches| D[sw];
     A -->|LED Outputs| E[led];
     A -->|GPIO Expansion Headers| F[gpio_0 & gpio_1];
     A -->|Arduino Headers| G[arduino_io & arduino_reset_n];
-
     B --> H[Async Conditioner];
     C --> H;
     H --> I[Synced Signal];
-
     I --> J[LED Patterns];
     D --> J;
     E --> J;
     J -->|LED Outputs| E;
-
     subgraph Components
         H[Async Conditioner]
         J[LED Patterns]
