@@ -24,11 +24,12 @@
 > ## System Architecture
 
 ```mermaid
-    flowchart LR;
+    flowchart LR
     subgraph top [DE10nano Top Entity];
-    Asynchronous Conditioner-->LED Patterns;
-    A[fpga_clk1_50] -->|50 MHz Clock| top[Top Level Entity: denano_top];
-    B[push_button_n];
+    direction TB
+    async[Asynchronous Conditioner]-->led[LED Patterns];
+    A[fpga_clk1_50]-->|50 MHz Clock| top[Top Level Entity: denano_top];
+    B[push_button_n]-->async[Asynchronous Conditioner];
     
     end
 ```
