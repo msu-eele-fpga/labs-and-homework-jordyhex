@@ -26,7 +26,7 @@
 ```mermaid
     flowchart LR
         subgraph top[DE10nano Top Entity];
-            direction TB
+            direction LR
             async[Asynchronous Conditioner]-->led[LED Patterns];
         end
         A[fpga_clk1_50]-->|50 MHz Clock| top;
