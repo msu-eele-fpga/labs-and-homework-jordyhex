@@ -24,7 +24,10 @@
 > ## System Architecture
 
 ```mermaid
-    graph TD;
+    graph TB;
+    A[fpga_clk1_50] -->|50 MHz Clock| top
+    B[push_button_n]
+    subgraph top [Top Level Entity: denano_top]
     A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
     A -->|Push Button| C[push_button_n];
     A -->|Slide Switches| D[sw];
@@ -41,47 +44,6 @@
     subgraph Components
         H[Async Conditioner]
         J[LED Patterns]
-    end
-```
-
-```mermaid
-graph TD;
-    
-    %% DE10-Nano top entity as the main square
-    subgraph DE10_Nano_Top [de10nano_top]
-        direction TB;
-
-        %% Inputs into DE10-Nano Top
-        clk1_50[50 MHz Clock Input] -->|clk1_50| DE10_Nano_Top;
-        push_button[Push Button Input] -->|push_button_n| DE10_Nano_Top;
-        sw[Slide Switches] -->|sw| DE10_Nano_Top;
-
-        %% Async Conditioner block
-        subgraph Async_Conditioner [Async Conditioner]
-            direction TB;
-            Debouncer --> OnePulse;
-            OnePulse --> Synchronizer;
-        end
-
-        %% Connections for the async conditioner
-        DE10_Nano_Top -->|Push Button Input| Async_Conditioner;
-        Async_Conditioner -->|Synced Signal| SyncedSignal[Synced Signal];
-
-        %% LED Patterns block
-        subgraph LED_Patterns [LED Patterns]
-            SyncedSignal --> LED_Patterns;
-            sw -->|Switches| LED_Patterns;
-        end
-
-        %% LED output from LED Patterns through DE10-Nano top
-        LED_Patterns -->|LED Output| led_out[External LED];
-        led_out --> DE10_Nano_Top;
-
-    end
-
-    %% Final external LED connection
-    DE10_Nano_Top -->|LED| led[LED];
-
     end
 ```
 >
