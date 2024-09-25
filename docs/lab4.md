@@ -26,10 +26,13 @@
 ```mermaid
     flowchart LR
         subgraph top[DE10nano Top Entity];
+        direction TB
             subgraph async[Asynchronous Conditioner];
+            direction TB
                 sync[Synchronizer]-->deb[Debouncer]-->one[One Pulse];
             end
             subgraph led[LED Patterns];
+            direction TB
                 TRANSITION;
                 s0[State 0];
                 s1[State 1];
