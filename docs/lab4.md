@@ -27,10 +27,22 @@
     flowchart LR
         subgraph top[DE10nano Top Entity];
             direction LR
-            async[Asynchronous Conditioner]-->led[LED Patterns];
+            subgraph async[Asynchronous Conditioner];
+                sync[Synchronizer]-->deb[Debouncer]-->one[One Pulse];
+            end
+            subgraph led[LED Patterns];
+                TRANSITION;
+                s0[State 0];
+                s1[State 1];
+                s2[State 2];
+                s3[State 3];
+                s4[State 4];
+            end
+            one[One Pulse]-->led[LED Patterns];
         end
         A[fpga_clk1_50]-->|50 MHz Clock| top;
         B[push_button_n]-->async[Asynchronous Conditioner];
+        C[rst]-->|Active Low|-->top;
 ```
 
 A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
