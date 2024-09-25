@@ -25,10 +25,17 @@
 
 ```mermaid
     graph TB;
-    A[fpga_clk1_50] -->|50 MHz Clock| top
-    B[push_button_n]
-    subgraph top [Top Level Entity: denano_top]
-    A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
+    A[fpga_clk1_50] -->|50 MHz Clock| top;
+    B[push_button_n];
+    subgraph top [Top Level Entity: denano_top];
+
+    subgraph Components
+        H[Async Conditioner]
+        J[LED Patterns]
+    end
+```
+
+A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
     A -->|Push Button| C[push_button_n];
     A -->|Slide Switches| D[sw];
     A -->|LED Outputs| E[led];
@@ -41,11 +48,6 @@
     D --> J;
     E --> J;
     J -->|LED Outputs| E;
-    subgraph Components
-        H[Async Conditioner]
-        J[LED Patterns]
-    end
-```
 >
 > ## Implementation Details
 
