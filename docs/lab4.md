@@ -42,7 +42,7 @@
         end
         A[fpga_clk1_50]-->|50 MHz Clock| top;
         B[push_button_n]-->async[Asynchronous Conditioner];
-        C[rst]-->|Active Low|--> top;
+        C[rst]-->|Active Low| top;
 ```
 
 A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
