@@ -25,13 +25,10 @@
 
 ```mermaid
     graph TB;
-    A[fpga_clk1_50] -->|50 MHz Clock| top;
+    A[fpga_clk1_50] -->|50 MHz Clock| top[Top Level Entity: denano_top];
     B[push_button_n];
     subgraph top [Top Level Entity: denano_top];
-
-    subgraph Components
-        H[Async Conditioner]
-        J[LED Patterns]
+    a1
     end
 ```
 
