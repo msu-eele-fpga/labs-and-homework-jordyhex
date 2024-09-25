@@ -44,7 +44,9 @@
         end
         direction LR
         A[fpga_clk1_50]--> top[DE10nano Top Entity];
+        direction LR
         B[push_button_n]-->async[Asynchronous Conditioner];
+        direction LR
         C[rst]-->top[DE10nano Top Entity];
         led[LED Patterns] --> led_out[LEDs]
 ```
