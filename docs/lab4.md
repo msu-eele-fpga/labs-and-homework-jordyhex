@@ -26,7 +26,6 @@
 ```mermaid
     flowchart LR
         subgraph top[DE10nano Top Entity];
-            direction LR
             subgraph async[Asynchronous Conditioner];
                 sync[Synchronizer]-->deb[Debouncer]-->one[One Pulse];
             end
