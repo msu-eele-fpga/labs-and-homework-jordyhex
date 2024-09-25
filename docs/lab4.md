@@ -23,7 +23,7 @@
 
 > ## System Architecture
 
-graph TD;
+    graph TD;
     A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
     A -->|Push Button| C[push_button_n];
     A -->|Slide Switches| D[sw];
