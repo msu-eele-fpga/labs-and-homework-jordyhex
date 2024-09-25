@@ -21,6 +21,15 @@
 > (base rate) x (clock cycles per second)
 >
 
+> ### LED Patterns
+>
+> |Specs|Transition|State 0|State 1|State 2|State 3|State 4|
+> |Rate|1 second|1/2 second|1/4 second|2 seconds|1/8 second|1/16 second|
+> |Pattern|Switch Value|Circular Right Shift|Circular Left Shift|Up Counter Wrap|Down Counter Wrap|The Wave|
+> |Lit LEDS|N/A|1|2|N/A|N/A|N/A|
+>
+
+
 > ## System Architecture
 
 ```mermaid
@@ -51,31 +60,19 @@
         led[LED Patterns] --> led_out[LEDs]
 ```
 
-A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
-    A -->|Push Button| C[push_button_n];
-    A -->|Slide Switches| D[sw];
-    A -->|LED Outputs| E[led];
-    A -->|GPIO Expansion Headers| F[gpio_0 & gpio_1];
-    A -->|Arduino Headers| G[arduino_io & arduino_reset_n];
-    B --> H[Async Conditioner];
-    C --> H;
-    H --> I[Synced Signal];
-    I --> J[LED Patterns];
-    D --> J;
-    E --> J;
-    J -->|LED Outputs| E;
->
 > ## Implementation Details
 
 > ### User LED Pattern
 > 
-> The LED pattern in State 4 (users choice) has a rate of 1/16 the base rate and 1 light LED in a circular left shift pattern.
+> The LED pattern in State 4 (users choice) has a rate of 1/16 the base rate and a wave of lit LEDs roatating in a wave pattern.
 >
+
+> ### Summary
+>
+> The lab was difficult because it took five minutes to compile. I apporoached the lab with a brute force solution and then tried to cut out extra lines of code. 
+> The LED patterns had to be modified to work with the testbench on modelsim. But I kept my original code because I thought it was cleaner. That is why there is 2 led pattern files.
+>
+> The idea of the lab was simple but the debugging was very challenging.
+>
+> I added a transition state because I was unable to get a working solution without it.
 > 
-## Deliverables
-
-N/A
-
-### Questions 
-
-N/A
