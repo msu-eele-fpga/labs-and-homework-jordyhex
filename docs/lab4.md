@@ -23,6 +23,7 @@
 
 > ## System Architecture
 
+```mermaid
     graph TD;
     A[Top Level Entity: de10nano_top] -->|50 MHz Clock| B[fpga_clk1_50];
     A -->|Push Button| C[push_button_n];
@@ -41,7 +42,7 @@
         H[Async Conditioner]
         J[LED Patterns]
     end
-
+```
 >
 > ## Implementation Details
 
