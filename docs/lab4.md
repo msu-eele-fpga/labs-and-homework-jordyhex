@@ -1,4 +1,4 @@
-# Lab 2: Hardware Hello World
+# Lab 4: LED Patterns
 
 ## Project Overview
 
