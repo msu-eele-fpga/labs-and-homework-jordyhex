@@ -1,0 +1,10 @@
+LICENSE
+README.md
+docs
+hdl
+linux
+ls-output.txt
+quartus
+sim
+sw
+utils
