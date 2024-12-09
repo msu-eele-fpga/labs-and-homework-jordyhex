@@ -41,6 +41,11 @@
 			linux,default-trigger = "heartbeat";
 		};
 	};
+	
+	led_patterns: led_patterns@ff200000 {
+    		compatible = "hexom,led_patterns";
+    		reg = <0xff200000 0x10>;
+	};
 };
 
 &gmac1 {

@@ -1,7 +1,0 @@
-#include "socfpga_cyclone5_de10nano.dtsi"
-
-
-/{
-
-
-};
