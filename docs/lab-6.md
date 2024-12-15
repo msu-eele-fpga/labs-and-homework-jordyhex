@@ -1,10 +1,6 @@
 # Lab 6: Custom Hardware Component in Platform Designer
-## EELE 467: SoC FPGAs
-### Fall 2024
-#### Taught by Professor Trevor Vannoy
 
-## Fundamentals
-This lab was difficult because I had to define a large number of terms. One definition led to the next and so on. So here are a few:
+## Vocab
 
 > #### Hard Processor System (HPS)
 >A system including CPUs and peripherals that are implemented in silicon.
@@ -32,22 +28,50 @@ Compared to a soft processor system that is created using the FPGA fabric, on to
 ---
 ## Deliverables
 ## System Architecture
+![Block Diagram](assets/lab6_diagram.png)
 
-> HPS logic and FPGA fabric are connected through 
-> Advanced Extensible Interface (AXI) bridge.
- >
-> Avalon Memory-Mapped Interface to read and write to 
+The HPS logic and FPGA fabric are connected through the AXI bridge. The Avalon memory-mapped interface allows for reading and writing data.
 
 ## Register Map
 
-![Block Diagram](assets/lab6_diagram.png)
+### HPS Control Register
+![hsp register](assets/lab-6/hps_wavedrom.jpg)
+
+The HPS control register controls the mode of operation, allowing for hardware or software control.
+
+### System Clock Register
+![System Clock Reg](assets/lab-6/sys_clk_wavedrom.jpg)
+
+The system clock register represents the number of clock cycles in a second (50MHz). Since this value remains constant unless the clock is divided, it can be defined as a constant rather than a register.
+
+### LED Register
+![LED reg](assets/lab-6/led_reg.jpg)
+
+The LED controls reading and writing from LEDs on the DE10-Nano.
+
+### Base Period Register
+![base address register](assets/lab-6/base_addr_wavedrom.jpg)
+
+The base period register controls the speed or rate of LED transitions.
+
+### Address Map Table
+
+### Address Map Table
+
+| **Register Name**      | **Address**    | **Description**                                                     |
+|-------------------------|----------------|---------------------------------------------------------------------|
+| `hps_led_control`       | `0xFF200000`  | Controls the mode of the system (Hardware/Software).               |
+| `sys_clk`               | `0xFF200004`  | Represents the number of clock cycles in 1 second (50 MHz).        |
+| `base_period`           | `0xFF200008`  | Sets the number of clock cycles for LED pattern transitions.       |
+| `led_reg`               | `0xFF20000C`  | Stores the current LED pattern to be displayed.                    |
+
 
 ## Platform Designer
 
 > How did you connect these registers to the ARM CPUs in the HPS?
 
-The registers are connected through Platform Designer. 
+The registers were connected via the HPS-to-FPGA Lightweight bus. This was achieved by mapping the Avalon memory-mapped slave interface of `led_patterns_avalon` to the HPS's AXI master in Platform Designer.
 
 > What is the base address of your component in your Platform Designer system?
 
-Platform Designer `led_patterns_avalon`: Base: 0x0000_0000 End: 0x0000_000f
+The base address of `led_patterns_avalon` is __0x0000_0000__, with an address range extending to 0x0000_000F.
