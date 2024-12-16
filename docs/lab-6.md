@@ -58,12 +58,12 @@ The base period register controls the speed or rate of LED transitions.
 
 ### Address Map Table
 
-| **Register Name**      | **Address**    | **Description**                                                     |
-|-------------------------|----------------|---------------------------------------------------------------------|
-| `hps_led_control`       | `0xFF200000`  | Controls the mode of the system (Hardware/Software).               |
-| `sys_clk`               | `0xFF200004`  | Represents the number of clock cycles in 1 second (50 MHz).        |
-| `base_period`           | `0xFF200008`  | Sets the number of clock cycles for LED pattern transitions.       |
-| `led_reg`               | `0xFF20000C`  | Stores the current LED pattern to be displayed.                    |
+| **Register Name**      | **Address**  | **Description**                                                     |
+|-------------------------|--------------|---------------------------------------------------------------------|
+| `hps_led_control`       | `0xFF200000` | Controls the mode of the system (Hardware/Software).               |
+| `sys_clk`               | `0xFF200004` | Represents the number of clock cycles in 1 second (50 MHz).        |
+| `led_reg`               | `0xFF200008` | Stores the current LED pattern to be displayed.                    |
+| `base_period`           | `0xFF20000C` | Sets the number of clock cycles for LED pattern transitions.       |
 
 
 ## Platform Designer
